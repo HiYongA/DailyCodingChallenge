@@ -59,12 +59,6 @@ const dotsContainerStyle = {
   bottom: "30px",
 };
 
-const dotStyle = {
-  cursor: "pointer",
-  fontSize: "15px",
-  opacity: "0.5",
-};
-
 function App() {
   const shin = [
     {
@@ -106,6 +100,12 @@ function App() {
     backgroundImage: `url(${shin[currentSlide - 1].src})`,
   };
 
+  const dotStyle = (id) => ({
+    cursor: "pointer",
+    fontSize: "15px",
+    opacity: currentSlide === id ? "0.8" : "0.5",
+  });
+
   useEffect(() => {
     const interval = setInterval(nextBtnClick, 3000);
     return () => clearInterval(interval);
@@ -143,7 +143,7 @@ function App() {
       <div style={dotsContainerStyle}>
         {shin.map((image) => (
           <div
-            style={dotStyle}
+            style={dotStyle(image.id)}
             key={image.id}
             onClick={() => dotClick(image.id)}
           >
