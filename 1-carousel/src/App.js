@@ -1,11 +1,69 @@
-import { useState } from "react";
-import "./App.css";
+import { useEffect, useState } from "react";
 import shin1 from "./img/1.jpg";
 import shin2 from "./img/2.jpg";
 import shin3 from "./img/3.jpg";
 import shin4 from "./img/4.jpg";
 import shin5 from "./img/5.jpg";
 import shin6 from "./img/6.jpg";
+
+const containerStyle = {
+  display: "flex",
+  flexDirection: "column",
+  width: "600px",
+  margin: "auto",
+  textAlign: "center",
+};
+
+const sliderStyle = {
+  position: "relative",
+  display: "flex",
+  alignItems: "center",
+};
+
+const slideStyles = {
+  width: "100%",
+  height: "320px",
+  borderRadius: "10px",
+  backgroundSize: "cover",
+  backgroundPosition: "center",
+  transition: "background-image 0.2s ease-in-out",
+};
+
+const buttonStyle = {
+  position: "absolute",
+  padding: "10px 20px",
+  fontSize: "30px",
+  fontWeight: "bold",
+  border: "none",
+  opacity: "0.5",
+  backgroundColor: "transparent",
+  cursor: "pointer",
+};
+
+const prevBtnStyle = {
+  ...buttonStyle,
+  left: "0",
+};
+
+const nextBtnStyle = {
+  ...buttonStyle,
+  right: "0",
+};
+
+const dotsContainerStyle = {
+  position: "relative",
+  display: "flex",
+  alignItems: "center",
+  justifyContent: "center",
+  gap: "10px",
+  bottom: "30px",
+};
+
+const dotStyle = {
+  cursor: "pointer",
+  fontSize: "15px",
+  opacity: "0.5",
+};
 
 function App() {
   const shin = [
@@ -43,34 +101,56 @@ function App() {
 
   const [currentSlide, setCurrentSlide] = useState(1);
 
-  const prevSlideBtn = () => {
+  const slideStylesBackground = {
+    ...slideStyles,
+    backgroundImage: `url(${shin[currentSlide - 1].src})`,
+  };
+
+  useEffect(() => {
+    const interval = setInterval(nextBtnClick, 3000);
+    return () => clearInterval(interval);
+  }, []);
+
+  const prevBtnClick = () => {
     setCurrentSlide((prevSlide) =>
       prevSlide === 1 ? shin.length : prevSlide - 1
     );
   };
 
-  const nextSlideBtn = () => {
+  const nextBtnClick = () => {
     setCurrentSlide((nextSlide) =>
       nextSlide === shin.length ? 1 : nextSlide + 1
     );
   };
 
+  const dotClick = (id) => {
+    setCurrentSlide(id);
+  };
+
   return (
-    <div className="carousel">
-      <button onClick={prevSlideBtn}>&lt;</button>
-      <div className="slide-container">
-        {shin.map((img) => (
+    <div style={containerStyle}>
+      <h1>1. Carousel</h1>
+      <div style={sliderStyle}>
+        <button style={prevBtnStyle} onClick={prevBtnClick}>
+          &lt;
+        </button>
+        <div style={slideStylesBackground}></div>
+        <button style={nextBtnStyle} onClick={nextBtnClick}>
+          &gt;
+        </button>
+      </div>
+
+      <div style={dotsContainerStyle}>
+        {shin.map((image) => (
           <div
-            key={img.id}
-            className={
-              img.id === currentSlide ? "slide-box active" : "slide-box"
-            }
+            style={dotStyle}
+            key={image.id}
+            onClick={() => dotClick(image.id)}
           >
-            <img src={img.src} alt={img.alt} />
+            ●
           </div>
         ))}
       </div>
-      <button onClick={nextSlideBtn}>&gt;</button>
     </div>
   );
 }
