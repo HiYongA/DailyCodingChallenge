@@ -129,7 +129,7 @@ function App() {
 
   return (
     <div style={containerStyle}>
-      <h1>1. Carousel</h1>
+      <h1>1. Carousel practice</h1>
       <div style={sliderStyle}>
         <button style={prevBtnStyle} onClick={prevBtnClick}>
           &lt;
