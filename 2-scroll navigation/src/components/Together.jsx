@@ -34,7 +34,7 @@ export default function Together() {
       <section style={{ flexDirection: "column" }}>
         <div style={imageStyle}>
           <img src={check} alt="check" style={{ width: "800px" }} />
-          <div style={buttonStyle}>앱에서 더 많은 용어 살펴보기 →</div>
+          <div style={buttonStyle}>뽀개기 인증서 자랑하기 →</div>
         </div>
       </section>
     </>
