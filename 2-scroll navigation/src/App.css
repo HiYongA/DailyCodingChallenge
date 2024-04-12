@@ -1,0 +1,121 @@
+@import "./normalize.css";
+
+* {
+  font-family: SUIT, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  color: #1c1e21;
+}
+
+header {
+  width: 100%;
+  padding: 16px;
+  position: fixed;
+  top: 0;
+  background-color: #ffffff;
+  z-index: 100;
+}
+
+main {
+  margin-top: 160px;
+}
+
+footer {
+  text-align: center;
+  padding-top: 50px;
+  padding-bottom: 30px;
+  font-size: 0.8rem;
+  color: #818387;
+  border-top: 1px solid #1c1e21;
+}
+
+h1 {
+  font-size: 1.25rem;
+  line-height: 2.5rem;
+  font-weight: 700;
+  padding-left: 32px;
+  margin-top: 0px;
+  margin-bottom: 30px;
+}
+
+nav {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+nav > div {
+  font-size: 1.125rem;
+  line-height: 1.5rem;
+  font-weight: 700;
+  border: 1px solid #1c1e21;
+  padding: 6px 20px;
+  cursor: pointer;
+}
+
+nav > div:hover {
+  background-color: #c2c7cf;
+}
+
+nav > div:active {
+  background-color: #1c1e21;
+  color: #ffffff;
+}
+
+h2 {
+  text-align: center;
+  padding-top: 100px;
+  padding-bottom: 30px;
+  line-height: 2.5rem;
+}
+
+h3 {
+  font-size: 1.2rem;
+}
+
+h4 {
+  font-size: 0.8rem;
+  color: #818387;
+  font-weight: 400;
+}
+
+section {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+table {
+  border-collapse: collapse;
+  border: 1px solid #1c1e21;
+}
+
+button {
+  width: 190px;
+  height: 45px;
+  margin-top: 20px;
+  line-height: 1.5rem;
+  font-weight: bold;
+  border: 1px solid #1c1e21;
+  background-color: #fac992;
+  color: #1c1e21;
+  cursor: pointer;
+}
+
+.toggle {
+  position: relative;
+  font-size: 15px;
+  padding: 20px;
+  padding-left: 20px;
+  text-align: left;
+  border: 1px solid #1c1e21;
+  background-color: #f3f4f7;
+  cursor: pointer;
+}
+
+.sink {
+  position: absolute;
+  top: 5px;
+  right: 20px;
+  font-size: 30px;
+}
