@@ -1,3 +1,4 @@
+import { useRef, useState } from "react";
 import "./App.css";
 import Pledge from "./components/Pledge";
 import Vote from "./components/Vote";
@@ -6,24 +7,58 @@ import News from "./components/News";
 import Together from "./components/Together";
 
 function App() {
-  const sections = [<Pledge />, <Vote />, <Term />, <News />, <Together />];
+  const sections = [
+    {
+      component: <Pledge />,
+      title: "공약 뽀개기",
+    },
+    {
+      component: <Vote />,
+      title: "투표 뽀개기",
+    },
+    {
+      component: <Term />,
+      title: "용어 뽀개기",
+    },
+    {
+      component: <News />,
+      title: "소식 뽀개기",
+    },
+    {
+      component: <Together />,
+      title: "함께 뽀개기",
+    },
+  ];
+  const sectionRefs = [useRef(), useRef(), useRef(), useRef(), useRef()];
+  const [activeSection, setActiveSection] = useState(null);
+
+  const scrollToSection = (index) => {
+    sectionRefs[index].current.scrollIntoView({ behavior: "smooth" });
+    setActiveSection(index);
+  };
 
   return (
     <>
       <header>
         <h1>2. Scroll Nevigation</h1>
         <nav>
-          <div>공약 뽀개기</div>
-          <div>투표 뽀개기</div>
-          <div>용어 뽀개기</div>
-          <div>소식 뽀개기</div>
-          <div>함께 뽀개기</div>
+          {sections.map((section, index) => (
+            <div
+              key={index}
+              className={activeSection === index ? "clicked" : ""}
+              onClick={() => scrollToSection(index)}
+            >
+              {section.title}
+            </div>
+          ))}
         </nav>
       </header>
 
       <main>
         {sections.map((section, index) => (
-          <div key={index}>{section}</div>
+          <div key={index} ref={sectionRefs[index]}>
+            {section.component}
+          </div>
         ))}
       </main>
 

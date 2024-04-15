@@ -46,31 +46,33 @@ export default function Vote() {
       </h2>
       <section>
         <table>
-          <tr>
-            <th colspan="2" style={titleStyle}>
-              01. 투표하러 갈 때
-            </th>
-          </tr>
-          <tr>
-            <td style={imageStyle}></td>
-            <td style={contentStyle}>
-              <p>
-                <strong>사전 투표(4월 5일 ~ 4월 6일)</strong> : 선거일 전에 미리
-                투표하는 것을 말해요. 전국 사전투표소 아무 데서나 투표할 수
-                있어요.
-              </p>
-              <p>
-                <strong>본 투표(4월 10일)</strong> : 선거일에 투표하는 것을
-                말해요. 내가 투표할 수 있는 투표소가 정해져 있어요. 오전 6시부터
-                오후 6시까지 신분증(주민등록증, 운전면허증, 복지카드 여권 등)을
-                들고 투표소에 가면 돼요.
-              </p>
-              <div style={buttonStyle}>
-                <button>사전 투표소 찾기 →</button>
-                <button>본 투표소 찾기 →</button>
-              </div>
-            </td>
-          </tr>
+          <tbody>
+            <tr>
+              <th colSpan="2" style={titleStyle}>
+                01. 투표하러 갈 때
+              </th>
+            </tr>
+            <tr>
+              <td style={imageStyle}></td>
+              <td style={contentStyle}>
+                <p>
+                  <strong>사전 투표(4월 5일 ~ 4월 6일)</strong> : 선거일 전에
+                  미리 투표하는 것을 말해요. 전국 사전투표소 아무 데서나 투표할
+                  수 있어요.
+                </p>
+                <p>
+                  <strong>본 투표(4월 10일)</strong> : 선거일에 투표하는 것을
+                  말해요. 내가 투표할 수 있는 투표소가 정해져 있어요. 오전
+                  6시부터 오후 6시까지 신분증(주민등록증, 운전면허증, 복지카드
+                  여권 등)을 들고 투표소에 가면 돼요.
+                </p>
+                <div style={buttonStyle}>
+                  <button>사전 투표소 찾기 →</button>
+                  <button>본 투표소 찾기 →</button>
+                </div>
+              </td>
+            </tr>
+          </tbody>
         </table>
       </section>
       <section
@@ -81,13 +83,13 @@ export default function Vote() {
           margin: "20px auto",
         }}
       >
-        <div class="toggle">
+        <div className="toggle">
           <strong>투표소에서 조심할 것은?</strong>
-          <span class="sink">⌵</span>
+          <span className="sink">⌵</span>
         </div>
-        <div class="toggle">
+        <div className="toggle">
           <strong>누구나 투표할 권리가 있어요!</strong>
-          <span class="sink">⌵</span>
+          <span className="sink">⌵</span>
         </div>
       </section>
     </>

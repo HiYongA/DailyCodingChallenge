@@ -49,12 +49,12 @@ export default function Term() {
         {terms.map((term, index) => {
           return (
             <div
-              class="toggle"
+              className="toggle"
               key={index}
               style={{ color: "#818387", fontWeight: "500" }}
             >
               <strong>{term.title}</strong>: {term.description}
-              <span class="sink">⌵</span>
+              <span className="sink">⌵</span>
             </div>
           );
         })}
